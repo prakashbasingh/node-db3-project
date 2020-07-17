@@ -23,3 +23,17 @@ select o.Id, c.CompanyName, e.Lastname
 from [Order] as o
 join Customer as c on o.CustomerId = c.id
 join Employee as e on o.EmployeeId = e.id
+
+
+-- In SQL Try Editor at W3Schools.com:
+-- Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+SELECT CategoryName, count(*)
+FROM Products
+join Categories on Categories.CategoryId = Products.CategoryId
+group by CategoryName
+
+-- Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+SELECT OrderID, count(*) as ItemCount
+FROM OrderDetails
+join Products on Products.ProductID = OrderDetails.ProductID
+group by OrderID
